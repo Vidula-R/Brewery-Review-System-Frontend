@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './index.css'; 
+import './index.css';
 
 function LoginPage() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  
+  const backendUrl = 'https://brewery-review-system-backend-dwxz.onrender.com'; 
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', { username, password });
+      const response = await axios.post(`${backendUrl}/login`, { username, password });
       localStorage.setItem('token', response.data.token);
       setError('');
-      navigate('/brewery');
+      navigate('/brewery'); 
     } catch (error) {
       setError('Invalid credentials');
     }

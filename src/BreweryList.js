@@ -38,7 +38,7 @@ function BreweryList() {
 
         const breweriesWithRatings = await Promise.all(data.map(async (brewery) => {
           try {
-            const ratingResponse = await axios.get(`http://localhost:5000/brewery/${brewery.id}/rating`);
+            const ratingResponse = await axios.get(`https://brewery-review-system-backend-dwxz.onrender.com/brewery/${brewery.id}/rating`);
             return { ...brewery, rating: ratingResponse.data.rating || 0 }; // Default to 0 if no rating
           } catch (error) {
             console.error('Error fetching rating for brewery:', brewery.id, error);
@@ -69,7 +69,7 @@ function BreweryList() {
 
       const breweriesWithRatings = await Promise.all(data.map(async (brewery) => {
         try {
-          const ratingResponse = await axios.get(`http://localhost:5000/brewery/${brewery.id}/ratings`);
+          const ratingResponse = await axios.get(`https://brewery-review-system-backend-dwxz.onrender.com/brewery/${brewery.id}/ratings`);
           return { ...brewery, rating: ratingResponse.data.rating || 0 }; // Default to 0 if no rating
         } catch (error) {
           console.error('Error fetching rating for brewery:', brewery.id, error);

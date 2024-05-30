@@ -29,7 +29,7 @@ function SubmitRating() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5000/brewery/${breweryId}/add-rating`, { rating, description });
+      await axios.post(`https://brewery-review-system-backend-dwxz.onrender.com/brewery/${breweryId}/add-rating`, { rating, description });
       navigate(`/brewery`); 
     } catch (error) {
       console.error('Error adding review:', error);

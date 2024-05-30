@@ -12,7 +12,7 @@ function SignupPage() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/register', { username, password });
+      await axios.post('https://brewery-review-system-backend-dwxz.onrender.com/register', { username, password });
       setError('');
       navigate('/');
     } catch (error) {
